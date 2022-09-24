@@ -2,13 +2,15 @@ FROM node:16.17.0-alpine
 
 ARG WORKDIR
 # ARG CONTAINER_PORT
+ARG API_URL
 
 ENV HOME=/${WORKDIR} \
     # コンピューター用の英語をUTF-8で利用する
     LANG=C.UTF-8 \
     TZ=Asia/Tokyo \
     # このNuxt.jsをブラウザから参照するための紐付け
-    HOST=0.0.0.0
+    HOST=0.0.0.0 \
+    API_URL=${API_URL}
 
 # ENV check（このRUN命令は確認のためなので無くても良い）
 # RUN echo ${HOME}
